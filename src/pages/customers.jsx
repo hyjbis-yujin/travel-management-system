@@ -4,15 +4,15 @@ import EmployeeCard from "../components/ui/employee-card";
 import Input from "../components/ui/input";
 import { useEffect, useState } from "react";
 import { EmployeeModal } from "../components/modal/employee-modal";
-import useEmployeeStore from "../stores/employee-store";
+import useCustomerStore from "../stores/customer-store";
 
-const Employees = () => {
+const Customers = () => {
   const [isOpen, setIsOpen] = useState(false); // 모달 열림 상태 관리 (초기값 false)
-  const employees = useEmployeeStore((state) => state.employees);
-  const fetchEmployees = useEmployeeStore((state) => state.fetchEmployees);
+  const customers = useCustomerStore((state) => state.customers);
+  const fetchCustomers = useCustomerStore((state) => state.fetchCustomers);
 
   useEffect(() => {
-    fetchEmployees();
+    fetchCustomers();
   }, []);
 
   const onClose = () => {
@@ -23,8 +23,8 @@ const Employees = () => {
     <div>
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900 mb-1">직원관리</h1>
-          <p className="text-slate-600">직원 정보를 등록하고 관리하세요</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-1">고객관리</h1>
+          <p className="text-slate-600">고객 정보를 등록하고 관리하세요</p>
         </div>
         <Button
           onClick={() => {
@@ -33,7 +33,7 @@ const Employees = () => {
           className="bg-blue"
         >
           <Plus className="w-4 h-4 mr-2" />
-          직원 등록
+          고객 등록
         </Button>
       </div>
 
@@ -46,14 +46,14 @@ const Employees = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow-sm border border-slate-200">
-        {employees.length < 1 ? (
+        {customers.length < 1 ? (
           <div className="text-center py-16">
             <User className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <p className="text-slate-500">등록한 직원이 없습니다.</p>
+            <p className="text-slate-500">등록한 고객이 없습니다.</p>
           </div>
         ) : (
           <ul className="divide-y divide-slate-200">
-            {employees.map((data) => (
+            {customers.map((data) => (
               <li className="hover:bg-slate-50 transition-colors">
                 <EmployeeCard employee={data} />
               </li>
@@ -67,34 +67,4 @@ const Employees = () => {
   );
 };
 
-const testData = [
-  {
-    name: "홍길동",
-    email: "hong120@gmail.com",
-    position: "사원",
-    phone: "010-0000-0101",
-    department: "개발팀",
-  },
-  {
-    name: "박길동",
-    email: "hong120@gmail.com",
-    position: "사원",
-    phone: "010-0000-0101",
-    department: "개발팀",
-  },
-  {
-    name: "홍길동",
-    email: "hong120@gmail.com",
-    position: "사원",
-    phone: "010-0000-0101",
-    department: "개발팀",
-  },
-];
-
-export default Employees;
-
-//
-
-// 원래 검색기능 안됐었나?
-// 네비게이션 소문자
-// 정보 글자 색
+export default Customers;

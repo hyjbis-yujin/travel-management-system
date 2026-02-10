@@ -1,5 +1,5 @@
-import Info from "./Info";
-import Logo from "./logo";
+import NavigationFooter from "./NavigationFooter";
+import NavigationHeader from "./NavigationHeader";
 
 import Navigation from "./navigation";
 
@@ -11,13 +11,13 @@ const Layout = ({ children }) => {
         <aside className="w-64 min-h-screen bg-slate-800 shadow-lg">
           <div className="flex flex-col h-full">
             {/* 로고 영역 */}
-            <Logo />
+            <NavigationHeader />
 
             {/* 네비게이션 */}
             <Navigation />
 
             {/* 하단 정보 */}
-            <Info />
+            <NavigationFooter />
           </div>
         </aside>
 

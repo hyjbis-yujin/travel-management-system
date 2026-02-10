@@ -1,6 +1,6 @@
 import { Plane } from "lucide-react";
 
-const Logo = () => {
+const NavigationHeader = () => {
   return (
     <div className="p-6 border-b border-slate-700">
       <div className="flex items-center space-x-3">
@@ -18,4 +18,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default NavigationHeader;

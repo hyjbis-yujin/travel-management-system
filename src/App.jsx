@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Employees from "./pages/employees";
 import Layout from "./components/layout";
+import Employees from "./pages/employees";
+import Packages from "./pages/packages";
+import Customers from "./pages/customers";
+import Tasks from "./pages/tasks";
 
 function App() {
   return (
@@ -10,10 +13,10 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Employees />} />
-            <Route path="/packages" element={<>여행관리</>} />
-            <Route path="/employees" element={<>직원관리</>} />
-            <Route path="/customers" element={<>유저관리</>} />
-            <Route path="/tasks" element={<>업무관리</>} />
+            <Route path="/packages" element={<Packages />} />
+            <Route path="/employees" element={<Employees />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/tasks" element={<Tasks />} />
           </Routes>
         </Layout>
       </BrowserRouter>
